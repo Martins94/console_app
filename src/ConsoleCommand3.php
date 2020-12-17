@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 
-class ConsoleApp extends Command
+class ConsoleCommand3 extends Command
 {
     protected function configure()
     {
