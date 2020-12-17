@@ -5,6 +5,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 
 
 class ConsoleApp extends Command
@@ -12,9 +13,10 @@ class ConsoleApp extends Command
     protected function configure()
     {
         $this
-        ->setName('app_say')
-        ->setDescription('output current argument')
-        ->addArgument('string', InputArgument::REQUIRED, 'The string to convert.')
+        ->setName('output_string_multiple')
+        ->setDescription('outputs a string multiple times')
+        ->addArgument('string', InputArgument::REQUIRED, 'The string to output.')
+        ->addOption('times',2, InputOption::VALUE_REQUIRED, 'output string X times',2)
         ;
     }
 
@@ -22,7 +24,11 @@ class ConsoleApp extends Command
     {
         $string = $input->getArgument('string');
 
-        $output->writeln('Привет '.$string);
+        $times = $input->getOption('times');
+
+        for ($i = 0; $i < $times; $i++) { 
+            $output->writeln($string. ' ');
+        }
 
         return Command::SUCCESS;
     }

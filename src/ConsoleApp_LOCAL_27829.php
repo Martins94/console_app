@@ -7,6 +7,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 
 
+
 class ConsoleApp extends Command
 {
     protected function configure()
@@ -25,6 +26,7 @@ class ConsoleApp extends Command
         $output->writeln('Привет '.$string);
 
         return Command::SUCCESS;
+
     }
 
 }
